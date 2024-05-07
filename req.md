@@ -42,6 +42,11 @@
 
 -   Criptografia de Senha:
     -   O sistema deve criptografar as senhas dos usuários.
+-   Usabilidade:
+    -   O sistema deve mostrar os gastos separados por mês.
+-   Diferenças entre movimentação fixa e variável:
+    -   Movimentações fixas são cadastradas uma vez e são consideradas todos os meses.
+    -   Movimentações variáveis serão apresentadas apenas naquele mês.
 
 ## Tradeoffs
 
@@ -50,3 +55,10 @@
 -   Menor latência
 -   Autententicação "básica"
 -   Armazenamento em Disco
+
+## Tecnologias:
+
+-   Next.js Full Stack
+-   Prisma
+-   PostgreSQL
+-   Typescript
