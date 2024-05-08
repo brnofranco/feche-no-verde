@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  email     String     @unique
+  password  String
+  movements Movement[]
+}
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  title     String     @unique
+  movements Movement[]
+}
+
+model Movement {
+  id         String   @id @default(uuid())
+  title      String
+  value      Decimal
+  isExpense  Boolean
+  isFixed    Boolean
+  createdAt  DateTime
+  finishedAt DateTime
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+}
