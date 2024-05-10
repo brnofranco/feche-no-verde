@@ -21,11 +21,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 		return NextResponse.json({ message: 'Categoria já existe!' });
 	}
 
-	const data = await prisma.category.create({
-		data: {
-			title,
-		},
-	});
+	const data = await prisma.category.create({ data: { title } });
 
 	return NextResponse.json(data);
 }
